@@ -85,3 +85,64 @@ Thread objects
 Waitable timer objects 
 
 6. What is the use of pointers?
+
+Pointers are used to store and maintain the addresses of memory blocks that are dynamically allocated. Data objects or arrays of objects are stored in these blocks. The heap or free store is a memory space in most structured and object-oriented languages from which objects are dynamically allocated.
+
+Example in C:
+
+#include <stdio.h>
+void printpointer()
+{
+ int var = 10;
+ int *pt;
+ pt = &var;    
+ printf("The address is: %p \n",pt);
+ printf("The value is: %d \n", *pt);   
+}
+int main()
+{
+ printpointer();
+}
+
+7. What is meant by stack and queue?
+
+A stack is a linear data structure in which elements can only be added or removed from the top side of the list. The LIFO (Last In First Out) principle dictates that the element put last is the first to come out of a stack. Pushing an element into a stack is referred to as a push operation while removing an element from a stack is referred to as a pop operation. With a pointer called top, we always maintain track of the last entry in the list in the stack.
+A queue is a linear data structure in which elements can only be inserted from one side of the list, called the back, and only deleted from the other side, called the front. The FIFO (First In First Out) principle governs the queue data structure, which means that the element placed first in the list is the first one withdrawn from the list. Enqueue operations are used to add items to a queue, and dequeue operations are used to remove items from a queue.
+
+8. What are the different types of OSI layers?
+
+Open Systems Interconnection (OSI) is an acronym for Open Systems Interconnection. It was created in 1984 by ISO or the International Organization for Standardization. It is a seven-layer architecture, with each layer performing distinct functions. These seven layers work together to send data from one person to another across the globe.
+
+![image](https://user-images.githubusercontent.com/81725794/182077196-bda372d5-aa6b-4b36-a291-0fde24e64a8f.png)
+
+Physical Layer: The physical layer is the lowest layer in the OSI reference model. It is in charge of establishing a physical connection between the devices. Bits of information are stored in the physical layer. It is in charge of sending individual bits from one node to another. When this layer receives data, it converts the signal received into 0s and 1s and sends them to the Data Link layer, which reassembles the frame.
+
+Data Link Layer: The data link layer is in charge of message transport from node to node. The major purpose of this layer is to ensure that data transfers from one node to another through the physical layer are error-free. There are two sublayers in the Data Link Layer:
+
+Media Access Control (MAC)
+Logical Link Control (LLC)
+
+Network Layer: The network layer is responsible for data transmission between hosts that are connected to various networks. It also handles packet routing, which is the choosing of the shortest path to send a packet from a large number of options. The network layer places the IP addresses of the sender and receiver in the header.
+
+Transport Layer: The application layer receives services from the transport layer, while the network layer receives services from the transport layer. Segments are the units of data in the transport layer. It is in charge of the full message's delivery from beginning to end. If an error is detected, the transport layer acknowledges the successful data transmission and re-transmits the data.
+
+Session Layer: This layer is in charge of establishing connections, maintaining sessions, authenticating users, and ensuring security.
+
+Presentation Layer: The data from the application layer is retrieved and processed here so that it may be transmitted across the network in the proper format.
+
+Application Layer: The Application layer, which is implemented by network applications, is at the very top of the OSI Reference Model stack of layers. These programs generate the data that must be sent across the network. This layer also acts as a window for application services to connect to the network and show the information they receive to the user.
+
+9. What is the default port for the MySQL server?
+
+The MySQL client, MySQL Connectors, and utilities like mysqldump and mysqlpump all use port 3306 as the default port for the old MySQL protocol (port).
+
+10. What is a virtual memory?
+
+A segment of memory that is produced momentarily on the storage device is referred to as virtual memory. It occurs when a computer's RAM gets depleted as a result of multiple processes executing at the same time.
+
+A part of the storage disc is made accessible for usage as RAM by the operating system. Because processor power is consumed by moving data around rather than performing instructions, virtual memory is substantially slower than main memory. The operating systems guide shows how the operating system handles memory. When the computer needs to use virtual memory, latency increases. The operating system employs swapping to transport data between RAM and virtual memory. Data from processes that aren't in use right now is moved out of RAM and stored in virtual memory by the operating system. When the process is needed again, it copies the data back into RAM.
+
+As transferring to a hard disc takes far longer than reading and writing RAM, using virtual memory slows down the machine.
+
+
+11. What is
