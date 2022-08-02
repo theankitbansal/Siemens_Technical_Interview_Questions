@@ -145,4 +145,62 @@ A part of the storage disc is made accessible for usage as RAM by the operating 
 As transferring to a hard disc takes far longer than reading and writing RAM, using virtual memory slows down the machine.
 
 
-11. What is
+11. What is a parent/child selector?
+
+All elements that are a direct child of the specified element are selected using the ("parent > child") selection.
+
+Parameters:
+
+Parent: This specifies the parent element to be selected.
+Child: This specifies the direct child element (of the specified parent element) to be selected.
+It chooses and returns all of the parent element's direct children.
+
+Here is an example of how to use the jQuery parent > child selector:
+
+<html>
+<body>
+<h2>Sample Demo</h2>
+<div>
+<p>First line.</p>
+<span>Middle line. (span outside of p element.) </span>
+<p>Last line. </p>
+</div><br>
+<div>
+<p>First line.</p>
+<p>Middle line. <span>span inside p element.</span></p>
+<p>Last line. </p>
+</div>
+</body>
+</html>
+
+12. Explain the Unix kernel.
+
+The operating system's central core is the UNIX kernel. It connects to the hardware devices, as well as to the processor, memory, and I/O management. Users' requests are managed by the kernel using system calls that move the process from user space to kernel space.
+
+A context switch occurs every time a user process performs a system call, such as read(), fork(), exec(), open(), and so on. A context switch is a mechanism that allows a process to change its state. The process can either be blocked until the system call is completed, or it can continue and be told of the completion of the system call via a signal (nonblocking).
+
+![image](https://user-images.githubusercontent.com/81725794/182291811-d2439274-333f-467c-b1f0-ea6192c7f562.png)
+
+13. What is the difference between array and hash table?
+
+An array has a set number of memory regions at first. It should store a preset type at each site (e.g. an integer). It could have repeated values or not.
+
+Hash is implemented as a set, on the other hand. It's built around an array. A hash function determines the position of an item in an array. There should be no duplicates in a hash. A collision occurs when duplicates occur, and there are several techniques for resolving this (e.g. chain duplicates, rehash and so on).
+
+![image](https://user-images.githubusercontent.com/81725794/182291830-68f25993-1831-4836-91ca-c481cf078ff1.png)
+
+14. What is marshalling?
+
+Marshalling is the process of converting an object's memory representation into a format that can be stored or transmitted to other software applications. Marshalling converts an object into serialised form, allowing communication between remote objects.
+
+Serialization and marshalling are two terms that are often used interchangeably. The objective of marshalling is to have the same object that is present in one operating programme, to be present in another running programme, i.e. object on a client to be transmitted to and present on the server. For example, serialization does not always have this intention because it is simply concerned with translating data into a stream of bytes.
+
+15. What are system calls?
+
+A system call is a method through which a computer programme asks a service from the kernel of the operating system on which it is running. A system call is a method of interacting with the operating system via programmes. When a computer software makes a request to the kernel of the operating system, it is called a system call. The operating system's services are provided to user programmes via the Application Program Interface (API). It acts as a link between a process and the operating system, allowing user-level programmes to request operating system services. The kernel system can only be accessed using system calls. System calls are required for any programmes that use resources.
+
+16. What daemon is responsible for tracking events on your system?
+
+The daemon 'syslogd' is in charge of keeping track of system data and storing it in particular log files.
+
+17. Describe how you would reverse a singly linked list.
