@@ -204,3 +204,136 @@ A system call is a method through which a computer programme asks a service from
 The daemon 'syslogd' is in charge of keeping track of system data and storing it in particular log files.
 
 17. Describe how you would reverse a singly linked list.
+
+The task is to reverse a linked list given a pointer to the head node. By modifying the linkages between nodes, we can reverse the list.
+
+Iterative method:
+
+Set up three-pointers. prev is set to NULL, curr is set to head, and next is set to NULL.
+Go through the linked list one by one. Do the following in a loop.
+// Before changing next of current, 
+// store next node 
+next = curr->next
+// Now change next of current 
+// This is where actual reversing happens 
+curr->next = prev 
+// Move prev and curr one step forward 
+prev = curr 
+curr = next
+
+18. What is the difference between Manual and Automation Testing.
+
+There are some significant distinctions between automated and manual testing. Manual testing involves a human performing tests step by step without the use of test scripts. Test automation frameworks, as well as other tools and technologies, are used to automate the execution of tests in automated testing.
+
+![Screenshot (980)](https://user-images.githubusercontent.com/81725794/182292057-c4bd5c54-2ae5-4d84-8294-c69422559a11.png)
+
+19. What are pragma directives?
+
+This is a special-purpose directive that is used to enable or disable certain functionality. This type of directive is compiler-specific, meaning it differs from one compiler to the next. The following are some of the #pragma directives:
+
+#pragma startup and #pragma exit: These directives help us describe the routines that must run before the program starts (before control transfers to main()) and right before programme exit (just before control returns from main()).
+#pragma warn Directive: This directive is used to hide warning messages that appear during the compilation process. When we have a huge programme and want to solve all of the errors before looking at warnings, we may use this to hide all warnings and focus on the faults. By making little syntax adjustments, we may make the warnings visible once more.
+#pragma GCC poison: The GCC compiler supports this directive, which is used to totally eliminate an identifier from a programme. The #pragma GCC poison directive can be used to prevent an identifier from being used.
+#pragma GCC dependence: You can use the #pragma GCC dependency to compare the relative dates of two files. A warning is issued if the other file is more recent than the current file. If the current file is derived from the other file and needs to be regenerated, this is handy.
+#pragma GCC system_header: This pragma does not accept any arguments. The rest of the code in the current file is processed as though it originated from a system header as a result of this.
+#pragma once: The #pragma once directive has a fairly straightforward concept. Even if the programmer includes it numerous times during a compilation, the header file containing this directive is only included once. There is no mention of this in any ISO C++ standard. The #include guard idiom is comparable to this directive. The use of #pragma only once prevents the programme from being optimised for numerous inclusions.
+
+20. How will you delete a node in a doubly-linked list (DLL)?
+
+The following is the process to delete a node in a doubly-linked list (DLL):
+
+Step 1: Create a function that takes as arguments a linked list and a node that needs to be deleted, and deletes the node.
+Step 2: To delete a head node:
+Move the head pointer to the next node in the current node (head here).
+Set the previous pointer of the next node to the previous pointer of the current node.
+Step 3: If you wish to remove the centre node, follow these steps.
+Set the previous pointer of the next node to the previous pointer of the current node.
+Move the previous node's next pointer to the current node's next pointer.
+Remove the node. (the most recent node)
+You do not need to delete previous or next if they are NULL. (for removing the final node)
+Step 4: Call the function on the given linked list and specify the node you want to delete.
+Code to delete a node in a doubly-linked list:
+
+import gc
+ 
+# Node of the doubly linked list
+class Node:
+
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+ 
+class DoublyLinkedList:
+    
+    def __init__(self):
+        self.head = None
+  
+   # A function to delete a node in a Doubly Linked List.
+ 
+    def deleteNode(self, todelete):
+         
+        if self.head is None or todelete is None:
+            return
+         
+        # If node to be deleted is the head node
+        if self.head == todelete:
+            self.head = todelete.next
+ 
+        # Change next only if node to be deleted is NOT
+        # the last node
+        if todelete.next is not None:
+            todelete.next.prev = todelete.prev
+     
+        # Change prev only if node to be deleted is NOT
+        # the first node
+        if todelete.prev is not None:
+            todelete.prev.next = todelete.next
+
+        gc.collect()
+ 
+ 
+    # Given a reference to the head of a list and an
+    # integer, inserts a new node on the front of list
+    def push(self, new_data):
+  
+        # Allocates node and inserts the data in it
+        new_node = Node(new_data)
+  
+        # Make next of new node as head and previous as None
+        new_node.next = self.head
+  
+        # Change prev of head node to new_node
+        if self.head is not None:
+            self.head.prev = new_node
+  
+        # Move the head to point to the new node
+        self.head = new_node
+ 
+ 
+    def printList(self, node):
+        while(node is not None):
+            print(node.data,end=' ')
+            node = node.next
+  
+# Start with an empty list
+dll = DoublyLinkedList()
+
+dll.push(2);
+dll.push(4);
+dll.push(8);
+dll.push(10);
+ 
+print ("\n The original linked list",end=' ')
+dll.printList(dll.head)
+ 
+# delete nodes from doubly linked list
+dll.deleteNode(dll.head)
+dll.deleteNode(dll.head.next)
+dll.deleteNode(dll.head.next)
+# Updated linked list will be NULL<-8->NULL
+print("\n The updated linked list",end=' ')
+dll.printList(dll.head)
+
+![image](https://user-images.githubusercontent.com/81725794/182292125-c1a03047-8217-4380-adb9-e02ade2ddfa5.png)
+
